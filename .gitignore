@@ -1,0 +1,21 @@
+# Backend (Node)
+backend/node_modules/
+backend/.env
+backend/*.log
+backend/coverage/
+
+# App (Flutter)
+app/.dart_tool/
+app/.pub-cache/
+app/.pub/
+app/build/
+app/coverage/
+app/**/Flutter/.last_build_id
+app/**/.flutter-plugins
+app/**/.flutter-plugins-dependencies
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store

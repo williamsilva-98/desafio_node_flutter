@@ -1,0 +1,37 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: desafio-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: desafio_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-psecret"]
+      interval: 3s
+      timeout: 5s
+      retries: 15
+      start_period: 25s
+
+  api:
+    build: .
+    container_name: desafio-api
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: desafio_db
+      DB_USER: root
+      DB_PASSWORD: secret
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
