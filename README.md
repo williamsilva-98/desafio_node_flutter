@@ -71,7 +71,7 @@ A API estará em http://localhost:3000.
 
 ### 2. Rodar o app Flutter
 
-Requisitos: **Flutter** 3.10+ (SDK ^3.10.7). A API deve estar rodando em http://localhost:3000.
+Requisitos: **Flutter** 3.38.6+ (SDK ^3.10.7). A API deve estar rodando em http://localhost:3000.
 
 Na pasta **`app`**:
 
